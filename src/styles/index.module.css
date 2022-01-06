@@ -1,0 +1,13 @@
+
+body {
+    background-color: #F2F2F2;
+    font-size: calc(15px)
+  }
+
+.main {
+    width: 100vw;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
