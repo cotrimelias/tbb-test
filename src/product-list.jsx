@@ -1,10 +1,21 @@
 import styles from './styles/product-list.module.css'
 import FilterProducts from './filter-products.jsx';
 
+const GetCategory = ({category}) => {
+    console.log(category.name)
+    return (
+        <div></div>
+    )
+}
+
 const ProductList = ({products}) => {
 
     return (
         <div>
+            {
+                products.map((i, index) => {return (<GetCategory key={`${i.category.id}${index}`} category={i.category}/>)})
+            }
+            <GetCategory category={products}/>
             <div><FilterProducts /></div>
             <div>
                 <div className={styles.product_list}>
