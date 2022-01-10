@@ -1,41 +1,36 @@
+import React, { useState } from 'react'
 import styles from './styles/product-list.module.css'
-import FilterProducts from './filter-products.jsx';
-
-const GetCategory = ({category}) => {
-    console.log(category.name)
-    return (
-        <div></div>
-    )
-}
+import Product from './components/product'
+import Button from './components/button'
 
 const ProductList = ({products}) => {
+    
+    const allCategories = [...new Set(products.map(i => i.category.name))]
+
+    const [currentcategory, setCategory] = useState(allCategories)
+
+    const filterProducts = (categoryname) => {
+        const filteredData = products.filter(i => categoryname.includes(i.category.name))
+        return filteredData
+    }
 
     return (
         <div>
             {
-                products.map((i, index) => {return (<GetCategory key={`${i.category.id}${index}`} category={i.category}/>)})
+                <Button clickFunc={() => setCategory(allCategories)}>Todos</Button>
             }
-            <GetCategory category={products}/>
-            <div><FilterProducts /></div>
+            {
+                allCategories.map(i => {
+                    return <Button clickFunc={() => setCategory(i)} key={`categoria${i}`}>{i}</Button>
+                })
+            }
+            
             <div>
                 <div className={styles.product_list}>
                     {
-                    products.map((i, index) => {
+                    filterProducts({currentcategory}.currentcategory).map((i, index) => {
                         return (
-                        <div className={styles.product} category={i.category.id} order={index} key={i.id}>
-                            <h3 className={styles.product_category}>{i.category.name}</h3>
-                            <div className={styles.product_images}>
-                            {
-                                i.images.map((i, index) => {
-                                    return (
-                                        <img className={styles.product_img} src={i.src} alt={i.alt} key={`${index}${i.src}`}></img>
-                                    )
-                                })
-                            }
-                            </div>
-                            <h1 className={styles.product_title}>{i.name}</h1>
-                            <button className={styles.product_buy_button}>Comprar</button>
-                        </div>
+                            <Product product={i} productorder={index} key={`produto-${index}`}/>
                         )
                     })
                     }

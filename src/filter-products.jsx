@@ -1,9 +1,10 @@
 import styles from './styles/filter.module.css'
 
-const FilterProducts = () => {
+const FilterProducts = ({categories}) => {
+
     return (
-        <div>
-            <h1 className={styles.title}>Filtrar</h1>
+        <div className={styles.wrapper}>
+            <h1 className={styles.title}>Filtrar por categoria:</h1>
         </div>
     )
 }

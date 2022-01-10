@@ -1,0 +1,17 @@
+.product {
+    width: 250px;
+    height: auto;
+    padding: 20px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    transition: 250ms;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 6fr 2fr 2fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 10px;
+}
+
+.product:hover {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 7px;
+}
