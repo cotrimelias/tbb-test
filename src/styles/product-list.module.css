@@ -1,29 +1,10 @@
 .product_list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-auto-rows: auto;
-    row-gap: 20px;
-    column-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    max-width: 1120px;
 }
-
-@media (max-width: 1050px) {
-    .product_list {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-@media (max-width: 800px) {
-    .product_list {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 550px) {
-    .product_list {
-        grid-template-columns: 1fr;
-    }
-}
-
 
 
 

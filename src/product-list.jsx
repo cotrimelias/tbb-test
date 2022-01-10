@@ -16,14 +16,16 @@ const ProductList = ({products}) => {
 
     return (
         <div>
-            {
-                <Button clickFunc={() => setCategory(allCategories)}>Todos</Button>
-            }
-            {
-                allCategories.map(i => {
-                    return <Button clickFunc={() => setCategory(i)} key={`categoria${i}`}>{i}</Button>
-                })
-            }
+            <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                {
+                    <Button clickFunc={() => setCategory(allCategories)}>Todos</Button>
+                }
+                {
+                    allCategories.map(i => {
+                        return <Button clickFunc={() => setCategory(i)} key={`categoria${i}`}>{i}</Button>
+                    })
+                }
+            </div>
             
             <div>
                 <div className={styles.product_list}>
